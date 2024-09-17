@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img href="https://www.solutions4it.co.uk/wp-content/uploads/2023/08/password-attacks-980x509.jpg.webp">
     <div class="container">
         <h1>Generador de Contraseñas</h1>
+
         <div class="password-output">
             <input type="text" id="password" readonly>
             <button id="copy-btn">Copiar</button>
@@ -33,6 +33,11 @@
             </label>
 
             <button id="generate-btn">Generar Contraseña</button>
+            <button id="clear-btn">Limpiar</button>
+        </div>
+
+        <div class="strength">
+            <p id="strength-indicator">Fuerza de la contraseña: <span id="strength-value"></span></p>
         </div>
     </div>
 

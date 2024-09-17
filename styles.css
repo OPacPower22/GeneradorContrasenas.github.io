@@ -10,9 +10,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("candado2.png");
-    background-repeat: no-repeat;
+    background-image: url("candado2.png");
     background-size: cover;
+    background-repeat: no-repeat; 
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
+    width: 350px;
 }
 
 h1 {
@@ -83,4 +83,25 @@ input[type="number"] {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+#clear-btn {
+    background-color: #dc3545;
+}
+
+#clear-btn:hover {
+    background-color: #c82333;
+}
+
+.strength {
+    margin-top: 15px;
+}
+
+#strength-indicator {
+    font-size: 1.2rem;
+}
+
+#strength-value {
+    font-weight: bold;
+    color: #007bff;
 }

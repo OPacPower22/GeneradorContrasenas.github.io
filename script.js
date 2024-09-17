@@ -7,6 +7,8 @@ const includeNumbers = document.getElementById('include-numbers');
 const includeSymbols = document.getElementById('include-symbols');
 const generateBtn = document.getElementById('generate-btn');
 const copyBtn = document.getElementById('copy-btn');
+const clearBtn = document.getElementById('clear-btn');
+const strengthIndicator = document.getElementById('strength-value');
 
 // Caracteres disponibles
 const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
@@ -36,6 +38,7 @@ function generatePassword() {
     }
 
     passwordField.value = password;
+    evaluateStrength(password);
 }
 
 // Copiar contraseña al portapapeles
@@ -43,6 +46,34 @@ copyBtn.addEventListener('click', () => {
     passwordField.select();
     document.execCommand('copy');
     alert('Contraseña copiada al portapapeles');
+});
+
+// Evaluar la fuerza de la contraseña
+function evaluateStrength(password) {
+    let strength = 0;
+
+    if (password.length >= 8) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+    if (strength <= 2) {
+        strengthIndicator.textContent = 'Débil';
+        strengthIndicator.style.color = 'red';
+    } else if (strength === 3 || strength === 4) {
+        strengthIndicator.textContent = 'Media';
+        strengthIndicator.style.color = 'orange';
+    } else {
+        strengthIndicator.textContent = 'Fuerte';
+        strengthIndicator.style.color = 'green';
+    }
+}
+
+// Limpiar la ventana
+clearBtn.addEventListener('click', () => {
+    passwordField.value = '';
+    strengthIndicator.textContent = '';
 });
 
 // Generar nueva contraseña al hacer clic en el botón
